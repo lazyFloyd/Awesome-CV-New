@@ -19,6 +19,7 @@
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
+\usepackage{babel}  % \usepackage[ngerman]{babel} -> Change \today to German style
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -26,7 +27,7 @@
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-red}
+\colorlet{awesome}{awesome-darknight}
 % Uncomment if you would like to specify your own color
 % \definecolor{awesome}{HTML}{CA63A8}
 
@@ -39,7 +40,7 @@
 % \definecolor{sectiondivider}{HTML}{5D5D5D}
 
 % Set false if you don't want to highlight section with awesome color
-\setbool{acvSectionColorHighlight}{true}
+\setbool{acvSectionColorHighlight}{false}
 
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
@@ -51,18 +52,20 @@
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
 % \photo{./examples/profile.png}
-\name{Claud D.}{Park}
-\position{Site Reliability Engineer{\enskip\cdotp\enskip}Software Architect}
-\address{235, World Cup buk-ro, Mapo-gu, Seoul, 03936, Republic of Korea}
+% B.Sc. in Computer Science and Informatics (University of Ljubljana)
+% B. Sc. in Informatik und Informationswissenschaften (Universität Ljubljana)
+\name{Vedran}{Cirak}
+\position{B.Sc. in Computer Science and Informatics (University of Ljubljana)}
+\address{Kierberger Str. 15, 50969 Köln, North Rhine-Westphalia, Germany}
 
-\mobile{(+82) 10-9030-1843}
-\email{posquit0.bj@gmail.com}
+\mobile{(+49) 170-9028935}
+\email{vedran.cirak@gmail.com}
 %\dateofbirth{January 1st, 1970}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+%\homepage{www.posquit0.com}
+%\github{lazyFloyd}
+%\linkedin{posquit0}
 % \gitlab{gitlab-id}
-% \stackoverflow{SO-id}{SO-name}
+%\stackoverflow{2810180}{flyingAssistant}
 % \twitter{@twit}
 % \x{x-id}
 % \skype{skype-id}
@@ -76,7 +79,14 @@
 % \googlescholar{googlescholar-id}{}
 % \extrainfo{extra information}
 
-\quote{``Be the change that you want to see in the world."}
+%\quote{``Be the change that you want to see in the world."}
+
+\hypersetup{
+  colorlinks=true,       % color the text of links instead of boxes
+  urlcolor=awesome,      % color for URLs (\href, \url)
+  linkcolor=awesome,     % color for internal links (section refs)
+  citecolor=awesome      % color for citations (if you ever use them)
+}
 
 
 %-------------------------------------------------------------------------------
@@ -90,7 +100,7 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Claud D. Park~~~·~~~Curriculum Vitae}
+  {Vedran Cirak~~~·~~~Curriculum Vitae}
   {\thepage}
 
 
@@ -98,15 +108,13 @@
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{cv/education.tex}
-\input{cv/skills.tex}
+%\input{cv_deu/education.tex}
 \input{cv/experience.tex}
-\input{cv/extracurricular.tex}
-\input{cv/honors.tex}
-\input{cv/certificates.tex}
-\input{cv/presentation.tex}
-\input{cv/writing.tex}
-\input{cv/committees.tex}
+%\clearpage
+\input{cv/skills.tex}
+\input{cv/projects.tex}
+%\input{cv/extracurricular.tex}
+%\input{cv/writing.tex}
 
 
 %-------------------------------------------------------------------------------

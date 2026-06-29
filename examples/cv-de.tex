@@ -1,0 +1,70 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV — German build.
+% Mirrors cv.tex but inputs the cv_deu/ section files and uses German locale.
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[11pt, a4paper]{awesome-cv}
+\usepackage[ngerman]{babel}  % German hyphenation and \today
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Color for highlights
+\colorlet{awesome}{awesome-darknight}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{false}
+
+% Social information separator
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{Vedran}{Cirak}
+\position{B.Sc. in Informatik und Informationswissenschaften (Universität Ljubljana)}
+\address{Kierberger Str. 15, 50969 Köln, Nordrhein-Westfalen, Deutschland}
+
+\mobile{(+49) 170-9028935}
+\email{vedran.cirak@gmail.com}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=awesome,
+  linkcolor=awesome,
+  citecolor=awesome
+}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal information
+\makecvheader
+
+% Print the footer
+\makecvfooter
+  {\today}
+  {Vedran Cirak~~~·~~~Lebenslauf}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV CONTENT (German)
+%-------------------------------------------------------------------------------
+\input{cv_deu/experience.tex}
+%\clearpage
+\input{cv_deu/skills.tex}
+\input{cv_deu/projects.tex}
+%\input{cv_deu/education.tex}
+%\input{cv_deu/extracurricular.tex}
+%\input{cv_deu/writing.tex}
+
+
+%-------------------------------------------------------------------------------
+\end{document}
