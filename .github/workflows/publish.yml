@@ -1,0 +1,50 @@
+name: Publish CV
+
+on:
+  push:
+    branches:
+    - master
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-cv
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Compile CV PDFs
+      run: make cv.pdf cv-de.pdf
+
+    - name: Upload built PDFs
+      uses: actions/upload-artifact@v4
+      with:
+        name: cv-pdfs
+        path: examples/*.pdf
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download built PDFs
+      uses: actions/download-artifact@v4
+      with:
+        name: cv-pdfs
+        path: out
+
+    - name: Publish to rolling release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: latest
+        name: Latest CV
+        body: "Built from master @ ${{ github.sha }}"
+        files: out/*.pdf
