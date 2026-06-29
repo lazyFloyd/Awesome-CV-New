@@ -5,7 +5,7 @@ on:
     branches:
     - master
     - update_2026_handelsblatt
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -30,7 +30,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: cv-pdfs
-        path: examples/*.pdf
+        path: |
+          examples/cv.pdf
+          examples/cv-de.pdf
 
   publish:
     needs: build
@@ -42,6 +44,12 @@ jobs:
       with:
         name: cv-pdfs
         path: out
+
+    - name: Remove previous release
+      run: gh release delete latest --cleanup-tag --yes || true
+      env:
+        GH_TOKEN: ${{ github.token }}
+        GH_REPO: ${{ github.repository }}
 
     - name: Publish to rolling release
       uses: softprops/action-gh-release@v2
