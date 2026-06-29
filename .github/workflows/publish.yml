@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - master
-    - update_2026_handelsblatt
   workflow_dispatch: {}
 
 permissions:
